@@ -17,6 +17,9 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
          <Providers>
             <ThemeRegistry>
                <body>
+                  {/* <Header /> */}
+
+                  {/* <Banner/> */}
                   <Container>{children}</Container>
                </body>
             </ThemeRegistry>

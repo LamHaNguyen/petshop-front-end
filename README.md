@@ -24,8 +24,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-  [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-  [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
@@ -34,3 +34,25 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Inportant
+
+-  Redux - [learn about Redux](https://viblo.asia/p/hoc-react-redux-trong-15-phut-1Je5E7q0ZnL)
+
+-  Redux Toolkit [learn about Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
+
+# To create
+
+-  Material UI [learn about Material UI](https://mui.com/material-ui/getting-started/)
+
+# To style
+
+-  Tailwind CSS [learn about Tailwind CSS](https://tailwindcss.com/docs/installation)
+
+# To make animation
+
+-  Framer Motion [learn about Framer Motion](https://www.framer.com/motion/?utm_source=motion-readme-docs)
+
+# Icon
+
+-  Fontawesome [learn about Fontawesome](https://fontawesome.com/search)
