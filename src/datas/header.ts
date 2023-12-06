@@ -10,7 +10,7 @@ export const navbar = [
    {title: 'Take Action', href: '/take-action'},
    {title: 'Adopt', href: '/adopt'},
    {title: 'Contact', href: '/contact'},
-   {title: 'Donatin', href: '/donation', style: {border: true}},
+   {title: 'Donation', href: '/donation', style: {border: true}},
 ];
 
 export const listProfile = [

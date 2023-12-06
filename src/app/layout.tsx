@@ -4,6 +4,7 @@ import Favicon from '/public/favicon.ico';
 import '../styles/globals.css';
 import {Providers} from '@/redux/provider';
 import {Container} from '@mui/material';
+import Header from '@/components/common/Header';
 
 export const metadata: Metadata = {
    title: 'Home page | Petfoster',
@@ -17,7 +18,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
          <Providers>
             <ThemeRegistry>
                <body>
-                  {/* <Header /> */}
+                  <Header />
 
                   {/* <Banner/> */}
                   <Container>{children}</Container>
