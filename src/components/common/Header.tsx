@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Navbar from './common-headers/Navbar';
 import Link from 'next/link';
+import MenuUser from './common-headers/MenuUser';
 
 export interface IHeaderProps {}
 
@@ -18,7 +19,7 @@ export default function Header({}: IHeaderProps) {
                />
             </div>
             <Navbar />
-            <div>user profile</div>
+            <MenuUser />
          </div>
       </header>
    );

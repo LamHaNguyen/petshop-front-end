@@ -25,33 +25,3 @@ export default function CustomButton({
       </Tag>
    );
 }
-
-// export interface IMainButtonProps {
-//    children: ReactNode;
-//    href?: string;
-//    className?: string;
-// }
-
-// //Mục dích custom là để use đc cho cả trường hợp nút đó là 1 link
-// //Nhận vào 1 prop href để xem nút đó có phải là thẻ a hay ko
-// export default function CustomButton({
-//    children,
-//    href = '',
-//    className,
-// }: IMainButtonProps) {
-//    //
-//    //khai báo 1 biến Tag có kiểu là ValidTags, or nếu ko là ValidTags thì phải là Link
-//    //giá trị mặc định của thẻ gán là button
-//    let Tag: ValidTags | typeof Link = 'button';
-
-//    //Nếu có href và href ko rỗng thì là thẻ Link
-//    if (href && href !== '') {
-//       Tag = Link;
-//    }
-
-//    return (
-//       <Tag className={className} href={href}>
-//          {children}
-//       </Tag>
-//    );
-// }
