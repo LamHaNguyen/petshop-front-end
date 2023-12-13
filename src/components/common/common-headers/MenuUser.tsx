@@ -55,11 +55,13 @@ export default function MenuUser(props: IMenuUserProps) {
                onClick={() => setOpenMenu((prev) => !prev)}
                invisible={openMenu}
             >
-               <Avatar
-                  alt='avartar'
-                  className='cursor-pointer border-2'
-                  src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
-               />
+               <WrapperAnimation hover={{}}>
+                  <Avatar
+                     alt='avartar'
+                     className='cursor-pointer border-2'
+                     src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+                  />
+               </WrapperAnimation>
             </CustomBadge>
          </Tippy>
       </div>

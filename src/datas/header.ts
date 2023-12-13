@@ -3,6 +3,7 @@ import {
    faRightFromBracket,
    faShoppingCart,
    faUser,
+   faHome,
 } from '@fortawesome/free-solid-svg-icons';
 
 export const navbar = [

@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function Navbar() {
    return (
-      <ul className='flex'>
+      <ul className='h-navbar lg:flex hidden items-center gap-1 text-white'>
          {navbar.map((nav) => (
             <li key={nav.title}>
                <ButtonNavbar

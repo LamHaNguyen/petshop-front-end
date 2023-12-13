@@ -5,6 +5,7 @@ import '../styles/globals.css';
 import {Providers} from '@/redux/provider';
 import {Container} from '@mui/material';
 import Header from '@/components/common/Header';
+import Banner from '@/components/common/Banner';
 
 export const metadata: Metadata = {
    title: 'Home page | Petfoster',
@@ -19,6 +20,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <ThemeRegistry>
                <body>
                   <Header />
+                  <Banner />
 
                   {/* <Banner/> */}
                   <Container>{children}</Container>
