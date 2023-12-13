@@ -3,20 +3,21 @@ import {createTheme, ThemeOptions, ThemeProvider} from '@mui/material/styles';
 import {CssBaseline} from '@mui/material';
 import React, {ReactNode} from 'react';
 import {NextAppDirEmotionCacheProvider} from './EmotionCache';
-import {Open_Sans} from 'next/font/google';
+import {Poppins} from 'next/font/google';
 
-const openSans = Open_Sans({
+const poppins = Poppins({
    subsets: ['latin'],
    style: ['normal', 'italic'],
    weight: ['300', '400', '500', '700', '800'],
 });
+
 export interface IThemeRegistryProps {
    children: ReactNode;
 }
 
 const themeOptions: ThemeOptions = {
    typography: {
-      fontFamily: openSans.style.fontFamily,
+      fontFamily: poppins.style.fontFamily,
       fontSize: 14,
    },
    palette: {
