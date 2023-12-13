@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import {motion} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons';
+import style from './styles/banner.module.css';
 
 export default function Banner() {
    //tạo 1 biến tham chiếu ref có tên là slider
@@ -40,7 +41,7 @@ export default function Banner() {
       //setInterval sẽ chạy độc lập theo chu kỳ time của nó mà ko cần đợi useEffect đc gọi
       const idInterval = setInterval(() => {
          slider.current?.slickNext();
-      }, 8000);
+      }, 20000);
 
       //clearInterval  được trả về từ useEffect CHỈ ĐƯỢC GỌI khi component unmounted or khi dependencies thay đổi và useEffect đc gọi lại ()
       //cleanup function dùng để xóa bỏ interval khi component unmounted - khi component ko đc render nữa.
@@ -51,16 +52,21 @@ export default function Banner() {
    }, []);
 
    return (
-      <div className='w-full max-h-[660px] relative overflow-hidden select-none '>
+      <div
+         className={`w-full max-h-[660px] relative overflow-hidden select-none ${style['box-btn']}`}
+      >
          {/* tạo 1 carousel slide */}
          {/* truyền tham chiếu vào thành phần Slider để có thể tương tác vs Slide ở những nơi khác */}
          {/* {...settings} - hiểu nôm na là setting có thuộc tính gì, nó sẽ đc truyền cho Slider -> Slider cũng có thuộc tính đó */}
          <Slider ref={slider} {...settings}>
-            <img src='/images/1.svg' alt='' />
-            <img src='/images/2.svg' alt='' />
+            <img src='/images/1.svg' alt='slide' />
+            <img src='/images/2.svg' alt='slide' />
+            <img src='/images/3.jpg' alt='slide' />
          </Slider>
 
-         <div className='absolute hidden xl:w-main m-auto top-[50%] left-0 right-0 text-green-86EFAC text-sm md:text-xl lg:flex lg:w-[90%] items-center justify-between'>
+         <div
+            className={`${style['box-btn-items']} absolute px-10 lg:px-12 w-full m-auto top-[50%] left-0 right-0 text-green-86EFAC text-sm  items-center justify-between hidden`}
+         >
             <motion.div
                whileHover={{x: -10}}
                whileTap={{scale: 0.9}}
