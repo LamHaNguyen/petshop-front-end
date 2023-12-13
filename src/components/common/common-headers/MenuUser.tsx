@@ -24,7 +24,7 @@ export default function MenuUser(props: IMenuUserProps) {
             render={(attr) => {
                return (
                   <ul
-                     className='bg-[#f2f2f2] w-[200px] text-[#4C4C4C] rounded-lg overflow-hidden font-medium'
+                     className='w-[188px] bg-[#F2F2F2] text-[#4C4C4C] rounded-lg overflow-hidden shadow-xl'
                      tabIndex={0}
                      {...attr}
                   >

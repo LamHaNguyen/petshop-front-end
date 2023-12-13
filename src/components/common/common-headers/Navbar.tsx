@@ -1,20 +1,33 @@
 'use client';
 import ButtonNavbar from '@/components/buttons/ButtonNavbar';
 import {navbar} from '@/datas/header';
-import React from 'react';
+import classNames from 'classnames';
+import React, {memo} from 'react';
 
-export default function Navbar() {
+export interface INavBarProps {
+   isScroll: boolean;
+}
+
+function NavBar({isScroll}: INavBarProps) {
    return (
-      <ul className='h-navbar lg:flex hidden items-center gap-1 text-white'>
+      <ul
+         className={classNames('h-navbar lg:flex hidden items-center gap-1', {
+            'text-white': !isScroll,
+            'text-[#111]': isScroll,
+         })}
+      >
          {navbar.map((nav) => (
             <li key={nav.title}>
                <ButtonNavbar
+                  isScroll={isScroll}
+                  contents={nav.title}
                   href={nav.href}
-                  border={nav.style?.border}
-                  content={nav.title}
-               ></ButtonNavbar>
+                  border={nav?.style?.border}
+               />
             </li>
          ))}
       </ul>
    );
 }
+
+export default memo(NavBar);
