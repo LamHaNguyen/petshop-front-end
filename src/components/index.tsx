@@ -7,3 +7,6 @@ export {default as ButtonNavbar} from './buttons/ButtonNavbar';
 
 //badges
 export {default as CustomBadge} from './badges/CustomBadge';
+
+//impact
+export {default as ImpactOfTheYear} from './impacts/ImpactOfTheYear';
