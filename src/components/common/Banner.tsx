@@ -53,15 +53,22 @@ export default function Banner() {
 
    return (
       <div
-         className={`w-full max-h-[660px] relative overflow-hidden select-none ${style['box-btn']}`}
+         className={`w-full max-h-[166px] md:max-h-[220px] lg:max-h-[540px] relative overflow-hidden select-none ${style['box-btn']}`}
       >
          {/* tạo 1 carousel slide */}
          {/* truyền tham chiếu vào thành phần Slider để có thể tương tác vs Slide ở những nơi khác */}
          {/* {...settings} - hiểu nôm na là setting có thuộc tính gì, nó sẽ đc truyền cho Slider -> Slider cũng có thuộc tính đó */}
          <Slider ref={slider} {...settings}>
-            <img src='/images/1.svg' alt='slide' />
-            <img src='/images/2.svg' alt='slide' />
-            <img src='/images/3.jpg' alt='slide' />
+            <img
+               className='object-cover h-full'
+               src='/images/1.svg'
+               alt='slide'
+            />
+            <img
+               className='object-cover h-full'
+               src='/images/2.svg'
+               alt='slide'
+            />
          </Slider>
 
          <div

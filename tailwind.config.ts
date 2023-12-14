@@ -10,6 +10,7 @@ const config: Config = {
    ],
    theme: {
       extend: {
+         fontFamily: {},
          backgroundImage: {
             'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
             'gradient-conic':
@@ -30,6 +31,7 @@ const config: Config = {
             'green-main': '#A3E635',
             'green-main-dark': '#65A30D',
             'green-86EFAC': '#86EFAC',
+            'black-main': '#374151',
          },
          borderColor: {
             'green-main': '#A3E635',

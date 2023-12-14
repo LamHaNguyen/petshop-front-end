@@ -3,13 +3,16 @@ import {listProfile, navbar} from '@/datas/header';
 import {faBars} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Avatar} from '@mui/material';
+import classNames from 'classnames';
 import {AnimatePresence, motion} from 'framer-motion';
 import Link from 'next/link';
-import {useState} from 'react';
+import {memo, useState} from 'react';
 
-export interface IMenuBarsProps {}
+export interface IMenuBarsProps {
+   isScroll: boolean;
+}
 
-export default function MenuBars(props: IMenuBarsProps) {
+function MenuBars({isScroll}: IMenuBarsProps) {
    const [open, setOpen] = useState(false);
 
    const handleClick = () => {
@@ -20,7 +23,10 @@ export default function MenuBars(props: IMenuBarsProps) {
       <>
          <WrapperAnimation
             onClick={handleClick}
-            className='cursor-pointer text-xl'
+            className={classNames('cursor-pointer text-xl', {
+               'text-[#111]': isScroll,
+               'text-white': !isScroll,
+            })}
          >
             {/* thằng này sẽ thay thế cho childrend trong motion.div của WrapperAnimation */}
             <CustomBadge
@@ -107,3 +113,5 @@ export default function MenuBars(props: IMenuBarsProps) {
       </>
    );
 }
+
+export default memo(MenuBars);

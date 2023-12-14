@@ -22,10 +22,10 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                <body>
                   <Header />
                   <Banner />
-                  <Footer />
+                  {/* <Footer /> */}
 
                   {/* <Banner/> */}
-                  <Container>{children}</Container>
+                  <main>{children}</main>
                </body>
             </ThemeRegistry>
          </Providers>
