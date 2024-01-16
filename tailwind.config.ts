@@ -1,5 +1,4 @@
 import type {Config} from 'tailwindcss';
-
 const config: Config = {
    content: [
       './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -19,7 +18,6 @@ const config: Config = {
          width: {
             main: '1280px',
             mobile: '484px',
-
             'slide-btn': '48px',
          },
          height: {
@@ -30,8 +28,11 @@ const config: Config = {
          colors: {
             'green-main': '#A3E635',
             'green-main-dark': '#65A30D',
+            'green-dark-md': '#065F46',
             'green-86EFAC': '#86EFAC',
+            'green-5FA503': '#5FA503',
             'black-main': '#374151',
+            'fill-heart': '#FB7185',
          },
          borderColor: {
             'green-main': '#A3E635',
@@ -39,6 +40,13 @@ const config: Config = {
          },
          backgroundColor: {
             'green-65a30d': '#65A30D',
+         },
+         fontSize: {
+            '1xl': '16px',
+            '7xl': '48px',
+         },
+         boxShadow: {
+            primary: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;',
          },
       },
    },

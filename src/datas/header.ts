@@ -8,6 +8,7 @@ import {
 
 export const navbar = [
    {title: 'Home', href: '/'},
+   {title: 'About', href: '/about'},
    {title: 'Take Action', href: '/take-action'},
    {title: 'Adopt', href: '/adopt'},
    {title: 'Contact', href: '/contact'},

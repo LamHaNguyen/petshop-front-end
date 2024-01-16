@@ -1,14 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
 import DivAnimation from '@/components/animations/DivAnimation';
 import {aboutComData} from '@/datas/component-data';
+import classNames from 'classnames';
 import Image from 'next/image';
 import * as React from 'react';
 
-export interface IAboutComProps {}
+export interface IAboutComProps {
+   hideTitle?: boolean;
+}
 
-export default function AboutCom(props: IAboutComProps) {
+export default function AboutCom({hideTitle = true}: IAboutComProps) {
    return (
       <section className='px-10'>
+         {!hideTitle && (
+            <h2
+               className={classNames(
+                  'text-black-main mt-24 pb-[48px] text-4xl font-medium uppercase text-center',
+               )}
+            >
+               ABOUT US
+            </h2>
+         )}
          <div className='bg-white w-full flex flex-col md:flex-row gap-10 lg:gap-[88px] items-center lg:w-main max-w-[100%] m-auto'>
             <DivAnimation className='md:w-[40%] w-full'>
                <img
