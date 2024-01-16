@@ -8,7 +8,7 @@ import {Poppins} from 'next/font/google';
 const poppins = Poppins({
    subsets: ['latin'],
    style: ['normal', 'italic'],
-   weight: ['300', '400', '500', '700', '800'],
+   weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 export interface IThemeRegistryProps {
