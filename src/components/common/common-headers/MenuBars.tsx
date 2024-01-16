@@ -1,3 +1,5 @@
+'use client';
+
 import {CustomBadge, WrapperAnimation} from '@/components';
 import {listProfile, navbar} from '@/datas/header';
 import {faBars} from '@fortawesome/free-solid-svg-icons';

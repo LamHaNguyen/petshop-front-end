@@ -1,26 +1,28 @@
-import {ValidTags} from '@/configs/types';
-import Link from 'next/link';
-import React, {ReactNode} from 'react';
+'use client';
 
-interface IMainButtonProps {
-   href?: string;
+import React, {CSSProperties, ReactNode} from 'react';
+import Link from 'next/link';
+import {ValidTags} from '@/configs/types';
+
+export interface IMainButtonProps {
    children: ReactNode;
+   href?: string;
    className?: string;
+   style?: CSSProperties;
 }
 
 export default function CustomButton({
-   href = '',
    children,
+   href = '',
    className,
+   style,
 }: IMainButtonProps) {
    let Tag: ValidTags | typeof Link = 'button';
-
-   if (href) {
+   if (href && href !== '') {
       Tag = Link;
    }
-
    return (
-      <Tag href={href} className={className}>
+      <Tag style={style} className={className} href={href}>
          {children}
       </Tag>
    );

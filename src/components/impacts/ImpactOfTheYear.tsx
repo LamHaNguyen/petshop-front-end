@@ -19,7 +19,7 @@ const sansita = Sansita_Swashed({
 export default function ImpactOfTheYear(props: IImpactOfTheYear) {
    return (
       <div>
-         <div className='w-full min-h-[1000px]'>
+         <div className='w-full'>
             <div className='w-full min-h-[315px] bg-[#F1F1F1] md:px-0'>
                <div>
                   <h3
@@ -43,7 +43,7 @@ export default function ImpactOfTheYear(props: IImpactOfTheYear) {
                   </div>
                </div>
             </div>
-            <div className='w-full h-full'>
+            <div className='w-full h-full max-h-[200px]'>
                <img
                   loading='lazy'
                   src={'/images/clip-path.svg'}
