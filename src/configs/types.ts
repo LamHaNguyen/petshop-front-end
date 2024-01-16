@@ -27,3 +27,5 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export type ValidTags = keyof JSX.IntrinsicElements;
+
+export type SortType = string | null;
