@@ -18,7 +18,7 @@ export default function Pets({
    bottom = 'load-more',
 }: IPetsProps) {
    return (
-      <ContainerContent classNameContainer='bg-[#F5FAFF] mt-[30px] pt-[50px]'>
+      <ContainerContent classNameContainer='bg-[#F5FAFF] mt-[30px] pt-24'>
          {heading ? (
             heading
          ) : (
