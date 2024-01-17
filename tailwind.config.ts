@@ -49,6 +49,9 @@ const config: Config = {
          boxShadow: {
             primary: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
          },
+         gridAutoColumns: {
+            '5item': '21%',
+         },
       },
    },
    plugins: [],
