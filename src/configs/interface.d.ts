@@ -42,6 +42,18 @@ export interface IPet {
    like: boolean;
 }
 
+export interface IProduct {
+   id: string | number;
+   name: string;
+   image: string;
+   branch: string;
+   size: string[];
+   rating: number;
+   price: number;
+   oldPrice: number;
+   discount: number;
+}
+
 export interface IPost {
    id: number | string;
    title: string;

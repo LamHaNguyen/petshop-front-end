@@ -26,6 +26,7 @@ export default function Header({}: IHeaderProps) {
             {
                'bg-white': isChangeBg,
                'shadow-xl': isChangeBg,
+               'bg-[rgba(0,0,0,.4)]': !isChangeBg,
             },
          )}
       >
