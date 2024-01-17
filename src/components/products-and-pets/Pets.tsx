@@ -3,6 +3,8 @@ import {ContainerContent} from '../common';
 import {IPet} from '@/configs/interface';
 import {MainButton} from '..';
 import Pet from './Pet';
+import Pagination from '../pagination/Pagination';
+import classNames from 'classnames';
 
 type bottomStyle = 'load-more' | 'pagination';
 
@@ -10,15 +12,21 @@ export interface IPetsProps {
    data: IPet[];
    heading?: ReactNode;
    bottom?: bottomStyle;
+   background?: string;
 }
 
 export default function Pets({
    data,
    heading,
    bottom = 'load-more',
+   background = 'bg-[#F5FAFF]',
 }: IPetsProps) {
    return (
-      <ContainerContent classNameContainer='bg-[#F5FAFF] mt-[30px] pt-24'>
+      <ContainerContent
+         classNameContainer={classNames('mt-[30px] pt-24', {
+            [background]: true,
+         })}
+      >
          {heading ? (
             heading
          ) : (
@@ -37,6 +45,8 @@ export default function Pets({
                <MainButton title='load more' className='my-11' />
             </div>
          )}
+
+         {bottom === 'pagination' && <Pagination pages={10} />}
       </ContainerContent>
    );
 }

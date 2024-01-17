@@ -1,5 +1,6 @@
 export {default as Cart} from './carts/Cart';
 export {default as WrapperAnimation} from './animations/WrapperAnimation';
+export {default as ImageAnimation} from './animations/ImageAnimation';
 
 //button
 export {default as CustomButton} from './buttons/CustomButton';
@@ -23,6 +24,7 @@ export {default as ImpactOfTheYear} from './impacts/ImpactOfTheYear';
 // products and pets
 export {default as Pet} from './products-and-pets/Pet';
 export {default as Pets} from './products-and-pets/Pets';
+export {default as PreviewImage} from './products-and-pets/components/PreviewImage';
 
 // components
 export {default as Feedback} from './common/common-components/Feedback';
