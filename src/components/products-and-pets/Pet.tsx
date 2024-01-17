@@ -54,13 +54,13 @@ export default function Pet({data}: IPetProps) {
                   {capitalize(data.breed)}
                </span>
             </div>
-            <ul className='flex flex-col gap-2 mt-2 text-black-main'>
+            <ul className='flex flex-col gap-2 mt-2 text-black-main text-[13px]'>
                <li className='flex items-center gap-1'>
                   <FontAwesomeIcon
                      className='h-[8px] w-[8px] text-fill-heart'
                      icon={faHeart}
                   />
-                  <p className='text-[12px]'>
+                  <p className=''>
                      {capitalize(`${data.size} ${data.sex} ${data.type}`)}
                   </p>
                </li>
@@ -69,14 +69,14 @@ export default function Pet({data}: IPetProps) {
                      className='h-[8px] w-[8px] text-fill-heart'
                      icon={faHeart}
                   />
-                  <p className='text-[12px]'>Fostered on: {data.fostered}</p>
+                  <p className=''>Fostered on: {data.fostered}</p>
                </li>
                <li className='flex items-center gap-1  '>
                   <FontAwesomeIcon
                      className='h-[8px] w-[8px] text-fill-heart'
                      icon={faHeart}
                   />
-                  <p className='text-[12px] line-clamp-2 text-[#888282]'>
+                  <p className=' line-clamp-2 text-[#888282]'>
                      {data.description + '...'}
                   </p>
                </li>

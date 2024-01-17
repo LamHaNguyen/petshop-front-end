@@ -16,7 +16,7 @@ export const navbar = [
 ];
 
 export const listProfile = [
-   {title: 'Profile', href: '/profile', icon: faUser},
+   {title: 'Profile', href: '/profile/me', icon: faUser},
    {title: 'Cart', href: '/cart', icon: faShoppingCart, style: {badge: true}},
    {title: 'Favorite', href: '/favorite', icon: faHeart},
    {title: 'Log out', href: '/log-out', icon: faRightFromBracket},
