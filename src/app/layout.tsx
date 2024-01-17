@@ -6,7 +6,7 @@ import {Providers} from '@/redux/provider';
 import {Container} from '@mui/material';
 import Header from '@/components/common/Header';
 import Banner from '@/components/common/Banner';
-import Footer from '@/components/footer/Footer';
+import Footer from '@/components/common/common-footer/Footer';
 
 export const metadata: Metadata = {
    title: 'Home page | Petfoster',

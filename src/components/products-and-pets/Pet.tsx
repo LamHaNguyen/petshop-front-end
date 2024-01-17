@@ -94,7 +94,7 @@ export default function Pet({data}: IPetProps) {
                </span>
 
                <Link
-                  href={links.pet}
+                  href={links.pet + `${data.id}/${data.name}`}
                   className='flex items-center text cursor-pointer gap-1'
                >
                   <span className='hover:underline text-green-main-dark'>
