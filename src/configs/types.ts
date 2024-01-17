@@ -29,3 +29,7 @@ export type AppDispatch = typeof store.dispatch;
 export type ValidTags = keyof JSX.IntrinsicElements;
 
 export type SortType = string | null;
+
+export type LocationTileType = 'center' | 'left' | 'right';
+
+export type PagesProfileType = 'me' | 'history' | 'logout';

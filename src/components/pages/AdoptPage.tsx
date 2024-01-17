@@ -6,9 +6,9 @@ import {SortType} from '@/configs/types';
 import {MenuDropDown, Pagination, Pet} from '..';
 import Sort from '../common/Sort';
 
-export interface ITakeActionPageProps {}
+export interface AdoptPageProps {}
 
-export default function TakeActionPage({}: ITakeActionPageProps) {
+export default function AdoptPage({}: AdoptPageProps) {
    return (
       <ContainerContent className=''>
          <Sort

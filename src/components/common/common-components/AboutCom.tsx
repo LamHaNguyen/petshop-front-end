@@ -31,7 +31,7 @@ export default function AboutCom({hideTitle = true}: IAboutComProps) {
             </DivAnimation>
 
             <DivAnimation delay={0.2} className='flex-1'>
-               <p className='text-black-main text-[16px]'>
+               <p className='text-black-main text-[16px] text-justify'>
                   {aboutComData.contents}
                </p>
             </DivAnimation>

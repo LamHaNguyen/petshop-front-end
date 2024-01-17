@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Grid} from '@mui/material';
+import {Fab, Grid} from '@mui/material';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {
    faHouse,
@@ -81,9 +81,12 @@ export default function Footer(props: IFooterProps) {
                </div>
             </div>
 
-            <div className='flex items-center mt-24'>
-               <span className='bg-white h-[1px] w-full'></span>
-               <img src='/logo-footer.svg' alt='logo-footer.svg' />
+            <div className='bg-white h-[1px] w-full mt-24'></div>
+
+            <div className='fixed bottom-[2%] right-[2%]'>
+               <Fab color='primary' aria-label='add'>
+                  <img src='/logo-footer.svg' alt='logo-footer.svg' />
+               </Fab>
             </div>
 
             <div className='flex items-center justify-center py-14'>
