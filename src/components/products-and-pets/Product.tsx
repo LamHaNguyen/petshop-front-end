@@ -1,6 +1,8 @@
 import {IProduct} from '@/configs/interface';
-import {capitalize, toCurrency} from '@/utils/format';
+import {links} from '@/datas/links';
+import {capitalize, stringToUrl, toCurrency} from '@/utils/format';
 import {Rating} from '@mui/material';
+import Link from 'next/link';
 import * as React from 'react';
 
 export interface IProductProps {
@@ -27,9 +29,12 @@ export default function Product({data}: IProductProps) {
                <span>{capitalize(data.branch)}</span>
                <p>{data.size[0]}</p>
             </div>
-            <h4 className='text-1xl line-clamp-2 hover:underline cursor-pointer mt-2 mb-1'>
+            <Link
+               href={links.produt + `${data.id}/${stringToUrl(data.name)}`}
+               className='text-1xl line-clamp-2 hover:underline cursor-pointer mt-2 mb-1'
+            >
                {data.name}
-            </h4>
+            </Link>
             <Rating
                sx={{
                   '& .MuiSvgIcon-root': {

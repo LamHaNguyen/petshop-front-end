@@ -1,24 +1,20 @@
 'use client';
-
-import Image from 'next/image';
-import Navbar from './common-headers/Navbar';
-import Link from 'next/link';
-import MenuUser from './common-headers/MenuUser';
-import {useState} from 'react';
-import {useMotionValueEvent, useScroll} from 'framer-motion';
-import MenuBars from './common-headers/MenuBars';
 import classNames from 'classnames';
+import React, {useState} from 'react';
+import {MenuBars, MenuUser, Navbar} from '.';
+import Link from 'next/link';
+import Image from 'next/image';
+import {useMotionValueEvent, useScroll} from 'framer-motion';
 
 export interface IHeaderProps {}
 
-export default function Header({}: IHeaderProps) {
+export default function HeaderDynamic({}: IHeaderProps) {
    const {scrollY} = useScroll();
+
    const [isChangeBg, setIsChangeBg] = useState(false);
-
-   useMotionValueEvent(scrollY, 'change', (latestY) => {
-      setIsChangeBg(latestY > 0);
+   useMotionValueEvent(scrollY, 'change', (latest) => {
+      setIsChangeBg(latest > 0);
    });
-
    return (
       <header
          className={classNames(
@@ -31,7 +27,7 @@ export default function Header({}: IHeaderProps) {
          )}
       >
          <div className=' w-main m-auto h-full lg:flex  xl:w-main items-center justify-between max-w-[100%] hidden'>
-            <Link href={'/'} className='w-[136px] h-[42px]'>
+            <Link href={'/'} className='w-[136px] h-[42px] cursor-pointer '>
                <Image
                   src={`/images/${
                      !isChangeBg ? 'large-logo.svg' : 'logo-large-dark.svg'
@@ -45,7 +41,6 @@ export default function Header({}: IHeaderProps) {
             <Navbar isScroll={isChangeBg} />
             <MenuUser />
          </div>
-
          {/* responcesive */}
          <div className=' m-auto h-full text-white flex items-center justify-between select-none lg:hidden'>
             <MenuBars isScroll={isChangeBg} />
