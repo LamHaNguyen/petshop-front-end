@@ -4,8 +4,7 @@ import Favicon from '/public/favicon.ico';
 import '../styles/globals.css';
 import {Providers} from '@/redux/provider';
 import {Container} from '@mui/material';
-import Header from '@/components/common/Header';
-import Banner from '@/components/common/Banner';
+import Header from '@/components/common/HeaderDynamic';
 import Footer from '@/components/common/common-footer/Footer';
 
 export const metadata: Metadata = {
@@ -20,12 +19,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
          <Providers>
             <ThemeRegistry>
                <body>
-                  <Header />
-                  <Banner />
-                  {/* <Footer /> */}
-
-                  {/* <Banner/> */}
-                  <main>{children}</main>
+                  {children}
                   <Footer />
                </body>
             </ThemeRegistry>

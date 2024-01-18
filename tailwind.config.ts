@@ -33,14 +33,18 @@ const config: Config = {
             'green-5FA503': '#5FA503',
             'black-main': '#374151',
             'fill-heart': '#FB7185',
+            'gray-primary': '#838383',
+            'red-primary': '#EF4444',
          },
          borderColor: {
             'green-main': '#A3E635',
             'green-main-dark': '#65A30D',
             'gray-primary': '#DBDBDB',
+            'orange-primary': '#FF7A00',
          },
          backgroundColor: {
             'green-65a30d': '#65A30D',
+            'orange-primary': '#FF7A00',
          },
          fontSize: {
             '1xl': '16px',

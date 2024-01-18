@@ -239,7 +239,7 @@ export const takeActionPageData = {
       {
          id: 1,
          branch: 'Royal Canin',
-         size: ['200g', '350g', '400g', '1kg'],
+         size: [200, 350, 400, 1000],
          discount: 10,
          image: 'https://bizweb.dktcdn.net/100/362/345/products/xsmalladult-a81506df-ac29-4e87-8bd8-153192be5792.jpg?v=1571057515367',
          name: 'Hạt Royal Canin X-Small Adult Cho Chó Trưởng Thành Giống Siêu Nhỏ',
@@ -250,7 +250,7 @@ export const takeActionPageData = {
       {
          id: 2,
          branch: 'Zenith',
-         size: ['200g', '350g', '400g', '1kg'],
+         size: [200, 350, 400, 1000],
          discount: 10,
          image: 'https://bizweb.dktcdn.net/100/438/021/products/56f71624-5d8b-4bcb-87ad-c23832bd1c46.jpg?v=1640251015190',
          name: 'Hạt Mềm Cho Chó Trưởng Thành Zenith Adult',
@@ -261,7 +261,7 @@ export const takeActionPageData = {
       {
          id: 3,
          branch: 'Royal Canin',
-         size: ['200g', '350g', '400g', '1kg'],
+         size: [200, 350, 400, 1000],
          discount: 10,
          image: 'https://product.hstatic.net/200000391405/product/bnm5005_344c38b9ad9346bbb78c6a57c536892e.jpg',
          name: 'Thức Ăn Cho Chó Mọi Lứa Tuổi Hữu Cơ Natural Core M50 Gà & Cá Hồi',
