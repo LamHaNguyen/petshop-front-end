@@ -7,10 +7,13 @@ import {MainButton, PreviewImageProduct, ProductRecents} from '../..';
 import {dataDetailProductPage} from '@/datas/detail-product';
 import {Nunito_Sans, Roboto_Flex} from 'next/font/google';
 import classNames from 'classnames';
-import {toCurrency} from '@/utils/format';
+import {toCurrency, urlToString} from '@/utils/format';
 import Sizes from './Sizes';
 import Quantity from './Quantity';
 import DesAndReview from './DesAndReview';
+import {useAppDispatch} from '@/hooks/reduxHooks';
+import {addCart} from '@/redux/slice/cartsSlide';
+
 const nunitoSans = Nunito_Sans({
    subsets: ['latin'],
    style: ['normal', 'italic'],
@@ -30,6 +33,10 @@ export interface IDetailProductPageProps {
 
 export default function DetailProductPage({params}: IDetailProductPageProps) {
    const [indexSizeAndPrice, setIndexSizeAndPrice] = useState(0);
+
+   const [quantity, setQuantity] = useState(1);
+
+   const dispatch = useAppDispatch();
 
    return (
       <>
@@ -116,6 +123,7 @@ export default function DetailProductPage({params}: IDetailProductPageProps) {
                      <Quantity
                         onQuantity={(quantity: number) => {
                            console.log(quantity);
+                           setQuantity(quantity);
                         }}
                         maxValue={
                            dataDetailProductPage.sizeAndPrice[indexSizeAndPrice]
@@ -124,7 +132,30 @@ export default function DetailProductPage({params}: IDetailProductPageProps) {
                      />
 
                      <div className='mt-[50px] flex items-center gap-5'>
-                        <MainButton title='add to card' />
+                        <MainButton
+                           title='add to card'
+                           onClick={() => {
+                              dispatch(
+                                 addCart({
+                                    id: params.id,
+                                    branch: dataDetailProductPage.branch,
+                                    image: dataDetailProductPage.image,
+                                    name: dataDetailProductPage.name,
+                                    price: dataDetailProductPage.sizeAndPrice[
+                                       indexSizeAndPrice
+                                    ].price,
+                                    quantity: quantity,
+                                    repo: dataDetailProductPage.sizeAndPrice[
+                                       indexSizeAndPrice
+                                    ].repo,
+                                    size: dataDetailProductPage.sizeAndPrice[
+                                       indexSizeAndPrice
+                                    ].size,
+                                    checked: true,
+                                 }),
+                              );
+                           }}
+                        />
                         <MainButton
                            background='bg-orange-primary'
                            title='buy now'

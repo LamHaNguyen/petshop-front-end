@@ -13,7 +13,7 @@ export default function ContainerContent({
    classNameContainer,
 }: IContainerContentProps) {
    return (
-      <section
+      <div
          className={classNames('w-full h-full', {
             [classNameContainer ?? '']: !!classNameContainer,
          })}
@@ -27,6 +27,6 @@ export default function ContainerContent({
                {children}
             </div>
          </section>
-      </section>
+      </div>
    );
 }

@@ -1,11 +1,14 @@
 'use client';
-import React, {useState} from 'react';
-import Tippy from '@tippyjs/react/headless';
-import {listProfile} from '@/datas/header';
-import Link from 'next/link';
-import {Avatar, Badge} from '@mui/material';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+
 import CustomBadge from '@/components/badges/CustomBadge';
+import {RootState} from '@/configs/types';
+import {listProfile} from '@/datas/header';
+import {useAppSelector} from '@/hooks/reduxHooks';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Avatar, Badge} from '@mui/material';
+import Tippy from '@tippyjs/react/headless';
+import Link from 'next/link';
+import React, {useEffect, useState} from 'react';
 import {WrapperAnimation} from '@/components';
 
 export interface IMenuUserProps {}
@@ -14,6 +17,7 @@ export interface IMenuUserProps {}
 //{...attr} - sao chép tất cả thuộc tính của đối tượng attr vào thẻ ul
 export default function MenuUser(props: IMenuUserProps) {
    const [openMenu, setOpenMenu] = useState(false);
+   const {cartUser} = useAppSelector((state: RootState) => state.cartReducer);
 
    return (
       <div>
@@ -51,9 +55,9 @@ export default function MenuUser(props: IMenuUserProps) {
             {/* Phan tu tuong tac Tippy */}
 
             <CustomBadge
-               badgeContent={4}
+               badgeContent={cartUser.length}
                onClick={() => setOpenMenu((prev) => !prev)}
-               invisible={openMenu}
+               invisible={openMenu || cartUser.length <= 0}
             >
                <WrapperAnimation hover={{}}>
                   <Avatar
