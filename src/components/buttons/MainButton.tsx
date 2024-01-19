@@ -10,6 +10,7 @@ export interface IMainButtonProps {
    height?: number | string;
    background?: string;
    href?: string;
+   upercase?: boolean;
 }
 
 export default function MainButton({
@@ -19,6 +20,7 @@ export default function MainButton({
    height,
    background = 'bg-[#5FA503]',
    href,
+   upercase = true,
 }: IMainButtonProps) {
    return (
       <WrapperAnimation hover={{y: -2}}>
@@ -35,7 +37,13 @@ export default function MainButton({
                },
             )}
          >
-            <span>{title.toUpperCase()}</span>
+            <span
+               className={classNames('', {
+                  ['uppercase']: upercase,
+               })}
+            >
+               {title}
+            </span>
          </CustomButton>
       </WrapperAnimation>
    );
