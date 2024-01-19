@@ -5,5 +5,5 @@ export {default as MenuBars} from './common-headers/MenuBars';
 export {default as AboutCom} from './common-components/AboutCom';
 export {default as ContainerContent} from './common-components/ContainerContent';
 export {default as BannerTakeAction} from './BannerTakeAction';
-export {default as HeaderDynamic} from './HeaderDynamic';
-export {default as HeaderFill} from './HeaderFill';
+export {default as Banner} from './Banner';
+export {default as Header} from './Header';

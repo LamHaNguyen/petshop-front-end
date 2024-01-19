@@ -1,5 +1,5 @@
 'use client';
-import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Cart from './Cart';
 import {dataCart} from '@/datas/cart-data';
 import {ICart} from '@/configs/interface';
@@ -14,15 +14,19 @@ export interface ICartsProps {
 
 export default function Carts({data, onTotal}: ICartsProps) {
    //lấy trạng thái của cart từ redux store
-   const {carts} = useAppSelector((state: RootState) => state.cartReducer);
+   const {cartUser} = useAppSelector((state: RootState) => state.cartReducer);
 
    const total = useMemo(() => {
-      if (carts.length <= 0) return 0;
-      const results = carts.reduce((result, item) => {
+      if (cartUser.length <= 0) return 0;
+      const newCart = cartUser.filter((item) => {
+         return item.checked;
+      });
+
+      const results = newCart.reduce((result, item) => {
          return (result += item.price * item.quantity);
       }, 0);
       return results;
-   }, [carts]);
+   }, [cartUser]);
 
    useEffect(() => {
       if (!onTotal) return;
@@ -30,7 +34,7 @@ export default function Carts({data, onTotal}: ICartsProps) {
       onTotal(total);
    }, [total, onTotal]);
    return (
-      <div className=''>
+      <>
          <div className='flex items-center py-4 text-xl border-b border-gray-primary font-semibold text-black-main'>
             <div className='w-[8%] flex items-center'>
                <Checkbox />
@@ -46,10 +50,16 @@ export default function Carts({data, onTotal}: ICartsProps) {
                <span>Total</span>
             </div>
          </div>
-         {data.map((cart) => {
-            return <Cart key={cart.id} data={cart} />;
+         {cartUser.map((cart, index) => {
+            return (
+               <Cart
+                  index={index}
+                  key={cart.id + cart.size.toString() + cart.branch}
+                  data={cart}
+               />
+            );
          })}
-      </div>
+      </>
    );
 }
 
