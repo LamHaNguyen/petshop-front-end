@@ -1,19 +1,7 @@
 'use client';
-import {IUser} from '@/configs/interface';
-import {RootState} from '@/configs/types';
-import {useAppDispatch, useAppSelector} from '@/hooks/reduxHooks';
-import {addUser} from '@/redux/slice/appSlice';
-import {
-   Button,
-   FormControl,
-   FormControlLabel,
-   InputLabel,
-   Input,
-   FormHelperText,
-   Grid,
-   MenuItem,
-} from '@mui/material';
-import Select, {SelectChangeEvent} from '@mui/material/Select';
+
+import {Button, FormControl, InputLabel, Grid, MenuItem} from '@mui/material';
+import {SelectChangeEvent} from '@mui/material/Select';
 import React, {useState} from 'react';
 import ContainerContent from '@/components/common/common-components/ContainerContent';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -21,15 +9,14 @@ import {
    faSquareFacebook,
    faSquareGooglePlus,
 } from '@fortawesome/free-brands-svg-icons';
-import {TextField, WrapperAnimation} from '..';
+import {TextField, WrapperAnimation, Select} from '..';
+import Link from 'next/link';
 
-export interface ILoginPageProps {}
+export interface IRegisterPageProps {}
 
-export default function LoginPage(props: ILoginPageProps) {
-   const [age, setAge] = React.useState('');
-
-   const handleChange = (event: SelectChangeEvent) => {
-      setAge(event.target.value as string);
+export default function RegisterPage(props: IRegisterPageProps) {
+   const handleChange = (event: SelectChangeEvent<any>) => {
+      // setAge(event.target.value as string);
    };
    const useStyle = {
       Button: {
@@ -53,14 +40,14 @@ export default function LoginPage(props: ILoginPageProps) {
                </div>
             </Grid>
             <Grid item lg={6} xs={12}>
-               <div className='mt-24 flex'>
-                  <p className='text-xl mt-5'>Or sign in with</p>
-                  <div className='px-5'>
+               <div className='mt-24 flex flex-col md:flex-row items-center justify-center gap-4 w-full'>
+                  <p className='text-xl whitespace-nowrap'>Or sign in with</p>
+                  <div className='px-5 w-full md:w-auto'>
                      <WrapperAnimation hover={{y: -2}}>
                         <Button
                            variant='contained'
                            color='primary'
-                           className=' w-[200px] place-content-center '
+                           className='w-full md:w-[200px] place-content-center '
                            sx={{p: '10px', backgroundColor: '#0284C7'}}
                         >
                            <FontAwesomeIcon
@@ -73,11 +60,11 @@ export default function LoginPage(props: ILoginPageProps) {
                         </Button>
                      </WrapperAnimation>
                   </div>
-                  <div className='px-5'>
+                  <div className='px-5 w-full md:w-auto'>
                      <WrapperAnimation hover={{y: -2}}>
                         <Button
                            variant='contained'
-                           className='w-[200px] place-content-center '
+                           className=' w-full md:w-[200px] place-content-center '
                            sx={{
                               p: '10px',
                               backgroundColor: '#0D9488',
@@ -132,20 +119,18 @@ export default function LoginPage(props: ILoginPageProps) {
             <Grid item lg={6} xs={12}>
                <div className='mt-4 p-4'>
                   <div className='p-3  rounded-lg'>
-                     <FormControl className='w-80'>
+                     <FormControl className='w-full md:w-80'>
                         <InputLabel id='demo-simple-select-label'>
                            Gender
                         </InputLabel>
                         <Select
                            labelId='demo-simple-select-label'
                            id='demo-simple-select'
-                           value={age}
                            label='Gender'
-                           onChange={handleChange}
-                           className='bg-zinc-100'
+                           onChange={(e) => handleChange(e)}
                         >
-                           <MenuItem value={10}>Female</MenuItem>
-                           <MenuItem value={20}>Male</MenuItem>
+                           <MenuItem value={'false'}>Female</MenuItem>
+                           <MenuItem value={'true'}>Male</MenuItem>
                         </Select>
                      </FormControl>
                   </div>
@@ -193,23 +178,26 @@ export default function LoginPage(props: ILoginPageProps) {
 
             <Grid item lg={12} xs={12}>
                <div className='pl-4'>
-                  <p className='pl-3 text-2xl font-thin tracking-widest'>
-                     Already have an account?{' '}
-                     <a href='' className='text-sky-500 font-thin'>
+                  <p className='pl-3 text-lg font-thin tracking-widest'>
+                     Already have an account?
+                     <Link
+                        href={'/login'}
+                        className='text-sky-500 font-thin hover:underline'
+                     >
                         Log in
-                     </a>
+                     </Link>
                   </p>
                </div>
             </Grid>
             <Grid item lg={6} xs={12}>
-               <div className='pl-4 mt-10'>
+               <div className='pl-4 mt-10 flex items-center justify-center md:justify-start'>
                   <WrapperAnimation hover={{y: -2}}>
                      <Button
                         variant='contained'
-                        className='w-[300px] h-[60px] uppercase'
+                        className='w-[250px] h-[50px] uppercase'
                         sx={{borderRadius: '50px', backgroundColor: '#374151'}}
                      >
-                        <span className='text-2xl font-medium'>Sign up</span>
+                        <span className='text-xl font-medium'>Sign up</span>
                      </Button>
                   </WrapperAnimation>
                </div>
