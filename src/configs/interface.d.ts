@@ -77,6 +77,7 @@ export interface ICart {
    price: number;
    quantity: number;
    repo: number;
+   checked?: boolean;
 }
 
 // phân trang
