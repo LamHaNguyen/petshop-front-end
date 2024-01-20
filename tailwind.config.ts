@@ -35,6 +35,8 @@ const config: Config = {
             'fill-heart': '#FB7185',
             'gray-primary': '#838383',
             'red-primary': '#EF4444',
+            'violet-primary': '#505DE8',
+            'blue-primary': '#0EA5E9',
          },
          borderColor: {
             'green-main': '#A3E635',

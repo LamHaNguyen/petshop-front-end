@@ -86,7 +86,25 @@ export default function Header({dynamic = true}: IHeaderProps) {
 
                   <Navbar isScroll={true} />
 
-                  <MenuUser />
+                  {true ? (
+                     <div className='flex items-center justify-center gap-1'>
+                        <Link
+                           className='hover:underline text-1xl'
+                           href={'/login'}
+                        >
+                           Login
+                        </Link>
+                        /
+                        <Link
+                           className='hover:underline text-1xl'
+                           href={'/register'}
+                        >
+                           Register
+                        </Link>
+                     </div>
+                  ) : (
+                     <MenuUser />
+                  )}
                </div>
 
                {/* responcesive */}
