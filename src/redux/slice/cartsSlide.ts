@@ -36,6 +36,7 @@ export const cart = createSlice({
             cartUser: [...state.cartUser, action.payload],
          };
          addCartTolocal(newObj.cartUser);
+         console.log(newObj.cartUser);
 
          return {
             ...newObj,

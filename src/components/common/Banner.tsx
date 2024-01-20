@@ -77,7 +77,7 @@ export default function Banner() {
                   alt='slide'
                />
 
-               <div className='absolute top-[30%] right-[50%] text-black-main'>
+               <div className='absolute top-[30%] right-[50%] text-black-main lg:block hidden'>
                   <h3 className='text-[32px] drop-shadow-md font-bold w-[500px] [text-shadow:_1px_1px_0px_rgb(255_255_255)]'>
                      SAVE OFF <span className='text-[#FF7A00]'>10 - 15%</span>{' '}
                      ON ALL PRODUCTS

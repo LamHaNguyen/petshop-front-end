@@ -7,6 +7,8 @@ export {default as CustomButton} from './buttons/CustomButton';
 export {default as ButtonNavbar} from './buttons/ButtonNavbar';
 export {default as MainButton} from './buttons/MainButton';
 export {default as HandCatButton} from './buttons/HandCatButton';
+export {default as SocialButton} from './buttons/SocialButton';
+export {default as RoudedButton} from './buttons/RoudedButton';
 
 //inputs
 // export {default as Find} from './inputs/Find';
@@ -42,6 +44,7 @@ export {default as KnowldegeAboutFosterItem} from './common/common-components/kn
 
 // boxs
 export {default as BoxTitle} from './boxs/BoxTitle';
+export {default as BoxSign} from './boxs/BoxSign';
 
 // paginations
 export {default as Pagination} from './pagination/Pagination';
