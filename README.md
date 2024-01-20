@@ -56,3 +56,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # Icon
 
 -  Fontawesome [learn about Fontawesome](https://fontawesome.com/search)
+
+<!--
+Gói "sharp" là một thư viện trong Node.js được sử dụng để thực hiện xử lý hình ảnh, chẳng hạn như thay đổi kích thước, cắt, xoay, thay đổi độ sáng, chuyển đổi định dạng, và nhiều tác vụ xử lý hình ảnh khác. Đây là một thư viện mạnh mẽ và linh hoạt, thường được sử dụng trong các ứng dụng web và dự án Node.js để tối ưu hóa và điều chỉnh hình ảnh. -->

@@ -134,25 +134,34 @@ export default function DetailProductPage({params}: IDetailProductPageProps) {
                      <div className='mt-[50px] flex items-center gap-5'>
                         <MainButton
                            title='add to card'
+                           // Khi người dùng nhấn vào nút "add to cart" (onClick event), một hàm được gọi. Hàm này được truyền vào prop onClick của component MainButton.
                            onClick={() => {
+                              // Trong hàm xử lý sự kiện (onClick), có một cuộc gọi hàm dispatch. dispatch là một phương thức được cung cấp bởi Redux để gửi một action đến reducer.
                               dispatch(
-                                 addCart({
-                                    id: params.id,
-                                    branch: dataDetailProductPage.branch,
-                                    image: dataDetailProductPage.image,
-                                    name: dataDetailProductPage.name,
-                                    price: dataDetailProductPage.sizeAndPrice[
-                                       indexSizeAndPrice
-                                    ].price,
-                                    quantity: quantity,
-                                    repo: dataDetailProductPage.sizeAndPrice[
-                                       indexSizeAndPrice
-                                    ].repo,
-                                    size: dataDetailProductPage.sizeAndPrice[
-                                       indexSizeAndPrice
-                                    ].size,
-                                    checked: true,
-                                 }),
+                                 addCart(
+                                    // Action được gửi đi là một đối tượng được tạo bởi hàm addCart, có các thuộc tính như id, branch, image, name, price, quantity, repo, size, checked.
+                                    // Action được gửi bởi dispatch được chuyển đến reducer nào đó (được đăng ký trong ứng dụng Redux của bạn).
+                                    // Reducer sẽ xử lý action này dựa trên type của action (trong trường hợp này, addCart có thể là type).
+                                    // Reducer sẽ cập nhật trạng thái của ứng dụng, thường là thêm thông tin về sản phẩm vào giỏ hàng (hoặc trạng thái tương tự).
+                                    //Sau khi reducer xử lý action, trạng thái của ứng dụng được cập nhật. Các component liên quan đến phần giỏ hàng có thể được render lại để hiển thị thông tin cập nhật
+                                    {
+                                       id: params.id,
+                                       branch: dataDetailProductPage.branch,
+                                       image: dataDetailProductPage.image,
+                                       name: dataDetailProductPage.name,
+                                       price: dataDetailProductPage
+                                          .sizeAndPrice[indexSizeAndPrice]
+                                          .price,
+                                       quantity: quantity,
+                                       repo: dataDetailProductPage.sizeAndPrice[
+                                          indexSizeAndPrice
+                                       ].repo,
+                                       size: dataDetailProductPage.sizeAndPrice[
+                                          indexSizeAndPrice
+                                       ].size,
+                                       checked: true,
+                                    },
+                                 ),
                               );
                            }}
                         />

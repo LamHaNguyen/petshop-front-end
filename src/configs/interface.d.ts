@@ -94,3 +94,31 @@ export interface IOtherHistories {
    data: IOtherHistory[];
    paginationTotal: 10; // số lượng trang ( vd: phân được 10 trang )
 }
+
+export interface IProfile {
+   id: string;
+   username: string;
+   fullname: string;
+   email: string;
+   phone: string;
+   genther: boolean;
+   birthday: number; // Cứ trả về Date trong java bình thường
+}
+
+export interface IChart {
+   title: string[]; // mảng các tháng
+   data: {
+      name: string; // tên mảng dữ liệu
+      data: number[]; // mảng dữ liệu
+   };
+}
+export interface IImpactOfYear {
+   title: string; // mảng các tháng
+   data: number;
+}
+
+export interface IStatisDashboard {
+   revenue: ICart;
+   product: IChart;
+   impactOfYear: IImpactOfYear[];
+}
