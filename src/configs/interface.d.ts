@@ -1,3 +1,5 @@
+import {UserFormType} from './types';
+
 //Định nghĩa 1 số kiểu Type cơ bản đc use trong dự án
 //Khi muốn sửa type chỉ cần vô file này -> dễ quản lý
 
@@ -121,4 +123,10 @@ export interface IStatisDashboard {
    revenue: ICart;
    product: IChart;
    impactOfYear: IImpactOfYear[];
+}
+
+export interface ILoginDataResponse {
+   message: string;
+   token: string;
+   errors: UserFormType | null;
 }

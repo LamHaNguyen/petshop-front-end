@@ -1,5 +1,5 @@
 import {store} from '@/redux/store';
-import {IUser} from './interface';
+import {ILoginDataResponse, IUser} from './interface';
 
 /*
 export:              export type này ra để xài đc ở những chỗ khác trong ứng dụng.
@@ -33,3 +33,11 @@ export type SortType = string | null;
 export type LocationTileType = 'center' | 'left' | 'right';
 
 export type PagesProfileType = 'me' | 'history' | 'logout';
+
+//api login
+export type ApiLogin = (data: UserFormType) => Promise<ILoginDataResponse>;
+
+export type ValidateType = {message: string; error: boolean};
+
+export type UserFormType = {username: string; password: string};
+//api login
