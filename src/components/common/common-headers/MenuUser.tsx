@@ -4,6 +4,7 @@ import CustomBadge from '@/components/badges/CustomBadge';
 import {RootState} from '@/configs/types';
 import {listProfile} from '@/datas/header';
 import {useAppSelector} from '@/hooks/reduxHooks';
+import {contants} from '@/utils/contants';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Avatar, Badge} from '@mui/material';
 import Tippy from '@tippyjs/react/headless';
@@ -19,6 +20,9 @@ export default function MenuUser(props: IMenuUserProps) {
    const [openMenu, setOpenMenu] = useState(false);
    const [isClient, setisClient] = useState(false);
    const {cartUser} = useAppSelector((state: RootState) => state.cartReducer);
+   //api login
+   const {user} = useAppSelector((state: RootState) => state.userReducer);
+   //api login
 
    useEffect(() => {
       setisClient(true);
@@ -76,7 +80,7 @@ export default function MenuUser(props: IMenuUserProps) {
                      <Avatar
                         alt='avartar'
                         className='cursor-pointer border-2'
-                        src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+                        src={user?.avatar || contants.avartarDefault}
                      />
                   </WrapperAnimation>
                </CustomBadge>

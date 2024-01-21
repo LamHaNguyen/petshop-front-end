@@ -1,4 +1,5 @@
 'use client';
+
 import React, {
    ChangeEvent,
    FocusEvent,
@@ -18,31 +19,28 @@ import {Box, Button, Grid, Stack, Typography} from '@mui/material';
 import Link from 'next/link';
 import Validate from '@/utils/validate';
 export interface IResetPasswordProps {}
-
 export default function ResetPassword(props: IResetPasswordProps) {
    const [password, setPassword] = useState('');
    const [error, setError] = useState('');
 
    const validate = () => {
       let flag = true;
-      if (!Validate.isPassword(password)) {
-         setError('Password must be longer than 6 characters');
+
+      const {message, error} = Validate.isPassword(password);
+
+      if (error) {
+         setError(message);
          flag = false;
       } else {
          setError('');
       }
-
       return flag;
    };
-
    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
       if (!validate()) return;
-
       alert('123');
    };
-
    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       setPassword(e.target.value);
    };
@@ -50,7 +48,7 @@ export default function ResetPassword(props: IResetPasswordProps) {
       validate();
    };
    return (
-      <BoxSign title='RESET PASSWORD'>
+      <BoxSign title='RESET PASSWORD' onSubmit={handleSubmit}>
          <Typography
             variant='subtitle1'
             fontSize={{xs: 12, md: 13, lg: 14}}
@@ -64,12 +62,10 @@ export default function ResetPassword(props: IResetPasswordProps) {
                "Just enter your email address below and we'll send you a link to reset your password!"
             }
          </Typography>
-
          <TextField
             error={error.length > 0}
             helperText={error}
             onBlur={handleBlur}
-            autoFocus
             value={password}
             onChange={handleChange}
             type='password'
