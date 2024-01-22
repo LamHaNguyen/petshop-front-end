@@ -26,7 +26,7 @@ export default function Product({data}: IProductProps) {
          </div>
          <div className='px-[20px] w-full'>
             <div className='flex items-center justify-between w-full text-gray-primary text-sm '>
-               <span>{capitalize(data.branch)}</span>
+               <span>{capitalize(data.brand)}</span>
                <p>{data.size[0]}</p>
             </div>
             <Link
