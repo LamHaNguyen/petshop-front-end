@@ -125,7 +125,7 @@ export interface IStatisDashboard {
    impactOfYear: IImpactOfYear[];
 }
 
-export interface ILoginDataResponse {
+export interface ISignDataResponse {
    message: string;
    token: string;
    errors: UserFormType | null;

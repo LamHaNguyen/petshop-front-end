@@ -1,6 +1,7 @@
 import React, {ReactNode} from 'react';
 import {SelectProps, Select as Sl, styled} from '@mui/material';
 import {Value} from 'classnames';
+import Validate from '@/utils/validate';
 
 export interface ISelectProps {
    children: ReactNode;
@@ -21,7 +22,6 @@ export default function Select({
                borderColor: '#5FA503',
             },
          }}
-         displayEmpty
       >
          {children}
       </Sl>
