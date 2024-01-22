@@ -22,7 +22,6 @@ const Validate = {
 
    isNumber(value: string): boolean {
       const num = /^\d+$/;
-
       return num.test(value);
    },
 
@@ -52,7 +51,7 @@ const Validate = {
       const valueTrim = value.trim();
 
       if (valueTrim.length <= 0)
-         return {message: 'Password is not blank ', error: true};
+         return {message: "Password can't be blank ", error: true};
 
       if (valueTrim.length < min)
          return {
@@ -65,11 +64,11 @@ const Validate = {
 
    email(value: string): ValidateType {
       if (this.isBlank(value))
-         return {message: 'Email is not blank ', error: true};
+         return {message: "Email can't be blank ", error: true};
 
       if (!this.isEmail(value))
          return {
-            message: 'Email invalid, please try a other email ',
+            message: 'Email is invalid, please try an other email ',
             error: true,
          };
 
@@ -78,18 +77,18 @@ const Validate = {
 
    gender(value: string): ValidateType {
       if (this.isBlank(value))
-         return {message: 'Gender is not blank ', error: true};
+         return {message: "Gender can't be blank ", error: true};
 
       return {message: '', error: false};
    },
 
    fullname(value: string): ValidateType {
       if (this.isBlank(value))
-         return {message: 'Fullname is not blank ', error: true};
+         return {message: "Fullname can't be blank ", error: true};
 
       if (this.isSpecialChars(value))
          return {
-            message: 'Fullname is not include special characters ',
+            message: "Fullname can't include special characters ",
             error: true,
          };
 
@@ -98,7 +97,7 @@ const Validate = {
 
    confirmPassword(value: string, password?: string): ValidateType {
       if (this.isBlank(value))
-         return {message: 'Password Confirm is not blank ', error: true};
+         return {message: "Password Confirm can't be blank ", error: true};
 
       const validPass = this.password(value);
 
@@ -106,7 +105,7 @@ const Validate = {
 
       if (password !== value)
          return {
-            message: 'Password Confirm is not match with password ',
+            message: 'Password Confirm is not match with the password',
             error: true,
          };
 
