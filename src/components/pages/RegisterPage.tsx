@@ -33,7 +33,6 @@ import Validate from '@/utils/validate';
 import {RegisterFormData} from '@/configs/types';
 import {register} from '@/apis/user';
 import {useRouter} from 'next/navigation';
-
 const initData = {
    username: '',
    gender: '',
@@ -42,9 +41,7 @@ const initData = {
    password: '',
    confirmPassword: '',
 };
-
 export interface IRegisterPageProps {}
-
 export default function RegisterPage(props: IRegisterPageProps) {
    const [form, setForm] = useState<RegisterFormData>(initData);
    const [errors, setErrors] = useState<RegisterFormData>(initData);
@@ -54,19 +51,15 @@ export default function RegisterPage(props: IRegisterPageProps) {
       type: AlertColor;
       open: boolean;
    }>({type: 'success', title: '', open: false});
-
    const router = useRouter();
-
    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
       setForm({
          ...form,
          [event.target.name]: event.target.value,
       });
    };
-
    const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
       const dynamicKey = e.target.name as keyof RegisterFormData;
-
       if (dynamicKey === 'confirmPassword') {
          const {message} = Validate[dynamicKey](e.target.value, form.password);
          setErrors({
@@ -75,23 +68,18 @@ export default function RegisterPage(props: IRegisterPageProps) {
          });
          return;
       }
-
       const {message} = Validate[dynamicKey](e.target.value);
       setErrors({
          ...errors,
          [dynamicKey]: message,
       });
    };
-
    const validate = () => {
       let flag = false;
       const validateErrors: RegisterFormData = {...initData};
-
       const keys: string[] = Object.keys(validateErrors);
-
       keys.forEach((key) => {
          const dynamic = key as keyof RegisterFormData;
-
          if (dynamic === 'confirmPassword') {
             const {message, error} = Validate[dynamic](
                form[dynamic],
@@ -107,17 +95,12 @@ export default function RegisterPage(props: IRegisterPageProps) {
             flag = error;
          }
       });
-
       setErrors(validateErrors);
-
       return flag;
    };
-
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
       if (validate()) return;
-
       try {
          setLoading(true);
          const res = await register({
@@ -125,22 +108,18 @@ export default function RegisterPage(props: IRegisterPageProps) {
             gender: Boolean(form.gender === 'Male'),
          });
          setLoading(false);
-
          if (res.errors && Object.keys(res.errors).length > 0) {
             setErrors({
                ...errors,
                ...res.errors,
             });
-
             return;
          }
-
          setnotifycation({
             open: true,
             title: 'Register successfuly, please login to use website !',
             type: 'success',
          });
-
          router.push('/login');
       } catch (error) {
          console.log('error in register page: ' + error);
@@ -151,7 +130,6 @@ export default function RegisterPage(props: IRegisterPageProps) {
          });
       }
    };
-
    return (
       <ContainerContent className='pt-24'>
          <Grid
@@ -201,7 +179,6 @@ export default function RegisterPage(props: IRegisterPageProps) {
                      label='Username'
                      size='small'
                   />
-
                   <Box sx={{width: {xs: '100%', md: '60%', lg: '60%'}}}>
                      <TextField
                         onBlur={handleBlur}
@@ -289,12 +266,12 @@ export default function RegisterPage(props: IRegisterPageProps) {
                         fontSize: {xs: '12px', md: '13px', lg: '14px'},
                      }}
                   >
-                     Need an account?
+                     Already have an account?
                      <Link
-                        href={'/register'}
+                        href={'/login'}
                         className='text-blue-primary hover:underline ml-1'
                      >
-                        Sign up
+                        Log in
                      </Link>
                   </Typography>
 
@@ -302,7 +279,6 @@ export default function RegisterPage(props: IRegisterPageProps) {
                </Box>
             </Grid>
          </Grid>
-
          {loading && <LoadingPrimary />}
          <Notifycation
             onClose={(e) => {

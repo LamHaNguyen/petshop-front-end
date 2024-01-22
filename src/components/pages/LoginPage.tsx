@@ -1,7 +1,7 @@
 'use client';
 
 import React, {ChangeEvent, FocusEvent, FormEvent, useState} from 'react';
-import {BoxSign, LoadingPrimary, TextField} from '..';
+import {BoxSign, LoadingPrimary, TextField, Notifycation} from '..';
 import {Backdrop, CircularProgress, Stack} from '@mui/material';
 import Validate from '@/utils/validate';
 import {UserFormType} from '@/configs/types';
@@ -33,81 +33,48 @@ export default function LoginPage(props: ILoginPageProps) {
             + Khi submit -> set lại là true để hiện biểu tượng loading, khi fetch xong api set lại là false cho mất đi
    */
    const [loading, setLoading] = useState(false);
+   const [notifycation, setnotifycation] = useState(false);
    const dispatch = useDispatch();
-
    const router = useRouter();
    const initalDataForm = {
       username: '',
       password: '',
    };
-
    const [form, setForm] = useState<UserFormType>(initalDataForm);
-
    const [errors, setErrors] = useState<UserFormType>(initalDataForm);
-
    const validate = () => {
       let flag = false;
-
       const validErrors: UserFormType = initalDataForm;
-
       const validUsername = Validate.username(form.username);
       const validPassword = Validate.password(form.password);
-
       validErrors.username = validUsername.message;
       validErrors.password = validPassword.message;
-
       if (validUsername.error) {
          flag = true;
       }
       if (validPassword.error) {
          flag = true;
       }
-
       setErrors(validErrors);
-
       return flag;
    };
-
    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       setForm({
          ...form,
          [e.target.name]: e.target.value,
       });
    };
-
    const handleBlur = (e: FocusEvent<HTMLInputElement>) => {
-      // keyof UserFormType: Là một toán tử TypeScript để tạo một kiểu union (hợp nhất) của tất cả các khóa (trường) trong UserFormType. Trong trường hợp này, UserFormType là kiểu có hai trường là 'username' và 'password', nên kiểu của keyof UserFormType là 'username' | 'password'.
-      // Kết quả, dynamicKey là một biến có kiểu là 'username' | 'password', nó chứa tên của trường đang được xử lý. Điều này hữu ích khi bạn muốn truy cập động vào một trường trong đối tượng UserFormType mà không cần biết chính xác tên trường là gì.
       const dynamicKey = e.target.name as keyof UserFormType;
-
-      /*
-         const {message} = Validate[dynamicKey](e.target.value);:
-
-         Validate[dynamicKey]: Truy cập vào hàm xác thực tương ứng với trường đang xử lý (ví dụ: Validate.username nếu dynamicKey là 'username').
-         e.target.value: Là giá trị hiện tại của trường đó mà người dùng đã nhập.
-         Validate[dynamicKey](e.target.value): Gọi hàm xác thực để kiểm tra giá trị của trường. Kết quả là một đối tượng có thuộc tính message chứa thông điệp lỗi nếu có.
-      */
       const {message} = Validate[dynamicKey](e.target.value);
-
-      /*
-         setErrors({...errors, [dynamicKey]: message});:
-
-         {...errors}: Tạo một bản sao của đối tượng errors hiện tại.
-         [dynamicKey]: message: Cập nhật giá trị của trường trong errors (thuộc tính có tên là dynamicKey) với thông điệp lỗi mới (message).
-         setErrors({...errors, [dynamicKey]: message});: Cập nhật trạng thái errors bằng cách 
-         thay thế giá trị của trường dynamicKey trong đối tượng errors với thông điệp lỗi mới, duy trì các giá trị của các trường khác không bị thay đổi.
-      */
       setErrors({
          ...errors,
          [dynamicKey]: message,
       });
    };
-
    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-
       if (validate()) return;
-
       try {
          setLoading(true);
          const res = await login(form);
@@ -117,19 +84,17 @@ export default function LoginPage(props: ILoginPageProps) {
                username: res.errors.username ? res.errors.username : '',
                password: res.errors.password ? res.errors.password : '',
             });
-
             return;
          }
-
          // all good
-
          router.push('/');
          dispatch(setToken(res.token));
       } catch (error) {
          console.log('error in login page: ' + error);
+         setLoading(false);
+         setnotifycation(true);
       }
    };
-
    return (
       <BoxSign onSubmit={handleSubmit} title='SIGN IN' titleBtn='SIGN IN'>
          <Stack spacing={'20px'}>
@@ -145,8 +110,8 @@ export default function LoginPage(props: ILoginPageProps) {
                fullWidth
             />
             <TextField
-               message={errors.username}
                onBlur={handleBlur}
+               message={errors.password}
                onChange={handleChange}
                value={form.password}
                type='password'
@@ -158,6 +123,14 @@ export default function LoginPage(props: ILoginPageProps) {
          </Stack>
 
          {loading && <LoadingPrimary />}
+         <Notifycation
+            onClose={() => {
+               setnotifycation(false);
+            }}
+            open={notifycation}
+            title='Something went wrong !'
+            type='error'
+         />
       </BoxSign>
    );
 }
