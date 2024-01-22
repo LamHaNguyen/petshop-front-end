@@ -9,6 +9,7 @@ export {default as MainButton} from './buttons/MainButton';
 export {default as HandCatButton} from './buttons/HandCatButton';
 export {default as SocialButton} from './buttons/SocialButton';
 export {default as RoudedButton} from './buttons/RoudedButton';
+export {default as Notifycation} from './buttons/RoudedButton';
 
 //inputs
 // export {default as Find} from './inputs/Find';
