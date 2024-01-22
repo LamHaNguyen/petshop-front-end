@@ -9,14 +9,6 @@ export interface Action<T, P> {
    readonly data?: P; //data có kiểu là P
 }
 
-//1 interface generic đại diện cho 1 response từ 1 API
-export interface IResponce<T> {
-   message: string;
-   status: number;
-   errors: boolean;
-   data: T;
-}
-
 //interface mô tả thông tin ng dùng
 export interface IUser {
    id?: number;
@@ -129,4 +121,20 @@ export interface ISignDataResponse {
    message: string;
    token: string;
    errors: UserFormType | null;
+}
+
+export interface IBaseResponse<T> {
+   message: string;
+   status: number;
+   errors: boolean;
+   data: T;
+}
+
+export interface ApiTakeAction {
+   newArrivals: IProduct[];
+}
+
+export interface ApiBestSeller {
+   data: IProduct[];
+   pages: number;
 }

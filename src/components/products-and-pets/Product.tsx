@@ -1,6 +1,6 @@
 import {IProduct} from '@/configs/interface';
 import {links} from '@/datas/links';
-import {capitalize, stringToUrl, toCurrency} from '@/utils/format';
+import {capitalize, stringToUrl, toCurrency, toGam} from '@/utils/format';
 import {Rating} from '@mui/material';
 import Link from 'next/link';
 import * as React from 'react';
@@ -27,7 +27,7 @@ export default function Product({data}: IProductProps) {
          <div className='px-[20px] w-full'>
             <div className='flex items-center justify-between w-full text-gray-primary text-sm '>
                <span>{capitalize(data.brand)}</span>
-               <p>{data.size[0]}</p>
+               <p>{toGam(data.size[0] as number)}</p>
             </div>
             <Link
                href={links.produt + `${data.id}/${stringToUrl(data.name)}`}

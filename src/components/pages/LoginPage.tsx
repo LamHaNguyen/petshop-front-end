@@ -134,11 +134,8 @@ export default function LoginPage(props: ILoginPageProps) {
       <BoxSign onSubmit={handleSubmit} title='SIGN IN' titleBtn='SIGN IN'>
          <Stack spacing={'20px'}>
             <TextField
+               message={errors.username}
                onBlur={handleBlur}
-               error={Validate.isNotBlank(errors.username)}
-               helperText={
-                  Validate.isNotBlank(errors.username) && errors.username
-               }
                onChange={handleChange}
                value={form.username}
                type='text'
@@ -148,11 +145,8 @@ export default function LoginPage(props: ILoginPageProps) {
                fullWidth
             />
             <TextField
+               message={errors.username}
                onBlur={handleBlur}
-               error={Validate.isNotBlank(errors.password)}
-               helperText={
-                  Validate.isNotBlank(errors.password) && errors.password
-               }
                onChange={handleChange}
                value={form.password}
                type='password'
