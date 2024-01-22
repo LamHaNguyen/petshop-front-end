@@ -23,11 +23,14 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Box, Button, Grid, Stack, Typography} from '@mui/material';
 import Link from 'next/link';
+
 export interface IBoxSignProps {
    onSubmit?: FormEventHandler<HTMLFormElement>;
    children: ReactNode;
    title: string;
    titleBtn?: string;
+   link?: {link: string; content: string; contentLink: string};
+   showForgot?: boolean;
 }
 
 export default function BoxSign({
@@ -35,6 +38,12 @@ export default function BoxSign({
    children,
    title,
    titleBtn = 'send',
+   link = {
+      link: '/register',
+      contentLink: 'Sign up',
+      content: 'Need an account?',
+   },
+   showForgot = true,
 }: IBoxSignProps) {
    return (
       <ContainerContent className='pt-24 text-black-main'>
@@ -65,21 +74,39 @@ export default function BoxSign({
 
                {children}
 
-               <Typography
-                  variant='subtitle2'
-                  sx={{
-                     mt: '20px',
-                     fontSize: {xs: '12px', md: '13px', lg: '14px'},
-                  }}
-               >
-                  Need an account?
-                  <Link
-                     href={'/register'}
-                     className='text-blue-primary hover:underline ml-1'
+               <Stack direction={'row'} sx={{justifyContent: 'space-between'}}>
+                  <Typography
+                     variant='subtitle2'
+                     sx={{
+                        mt: '20px',
+                        fontSize: {xs: '12px', md: '13px', lg: '14px'},
+                     }}
                   >
-                     Sign up
-                  </Link>
-               </Typography>
+                     {link.content}
+                     <Link
+                        href={link.link}
+                        className='text-blue-primary hover:underline ml-1'
+                     >
+                        {link.contentLink}
+                     </Link>
+                  </Typography>
+                  {showForgot && (
+                     <Typography
+                        variant='subtitle2'
+                        sx={{
+                           mt: '20px',
+                           fontSize: {xs: '12px', md: '13px', lg: '14px'},
+                        }}
+                     >
+                        <Link
+                           href={'/profile/reset-password'}
+                           className='text-blue-primary hover:underline ml-1'
+                        >
+                           Forgot password ?
+                        </Link>
+                     </Typography>
+                  )}
+               </Stack>
 
                <RoudedButton title={titleBtn} />
             </Grid>
