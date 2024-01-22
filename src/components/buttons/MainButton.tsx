@@ -1,9 +1,7 @@
 'use client';
-
 import React, {MouseEventHandler} from 'react';
 import classNames from 'classnames';
 import {CustomButton, WrapperAnimation} from '..';
-
 export interface IMainButtonProps {
    className?: string;
    title: string;
@@ -22,7 +20,7 @@ export default function MainButton({
    height,
    background = 'bg-[#5FA503]',
    href,
-   upercase,
+   upercase = true,
    onClick,
 }: IMainButtonProps) {
    return (
